@@ -1,0 +1,25 @@
+# Text-to-Speech & Audio
+pyttsx3
+pydub
+ffmpeg-python  # Para manejo de audio en pydub
+
+# Document Readers (Todos los formatos)
+python-docx          # .docx
+odfpy                  # .odt
+striprtf              # .rtf
+beautifulsoup4        # .html
+requests              # Para descargar HTML remotos
+openpyxl               # .xlsx (opcional)
+python-pptx           # .pptx (opcional)
+pdfplumber            #pdf
+ebooklib              #epub  
+antiword
+
+
+# GUI
+PyQt5
+PyQt5-sip
+pywin32
+
+
+
