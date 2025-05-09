@@ -3,7 +3,6 @@ from sonoriza.core.enums.enums import Genero, Calidad
 
 @dataclass(frozen=True)
 class Voice:
-    nombre: str
     genero: Genero
     calidad: Calidad
     velocidad: int
