@@ -1,5 +1,5 @@
 from pathlib import Path
-from core.enums.enums import DocumentType
+from sonoriza.core.enums.enums import DocumentType
 from typing import Optional
 
 class Document:

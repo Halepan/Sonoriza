@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from core.enums.enums import Genero, Calidad
+from sonoriza.core.enums.enums import Genero, Calidad
 
 @dataclass(frozen=True)
 class Voice:

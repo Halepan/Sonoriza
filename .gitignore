@@ -17,11 +17,11 @@ __pycache__/
 
 # Python virtual environment
 venv/
-.env/
+.env
 .venv/
 
 # IDE and editor files
-.vscode/
+.vscode
 .idea/
 *.swp
 *.sublime-workspace
