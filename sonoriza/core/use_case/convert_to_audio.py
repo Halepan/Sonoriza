@@ -1,7 +1,7 @@
-from core.domain.document import Document
+from sonoriza.core.domain.document import Document
 
+def text():
+    ruta = input("ruta: ")
 
-ruta = input("ruta: ")
-
-archivo = Document(ruta)
-print(archivo)
+    archivo = Document(ruta)
+    print(archivo)
