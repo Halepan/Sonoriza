@@ -1,5 +1,5 @@
 from pathlib import Path
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class TXTReader(IDocumentReader):
     @property

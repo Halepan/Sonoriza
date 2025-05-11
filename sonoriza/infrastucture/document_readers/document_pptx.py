@@ -1,6 +1,6 @@
 from pathlib import Path
 from pptx import Presentation
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class PPTXReader(IDocumentReader):
     @property

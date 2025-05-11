@@ -1,6 +1,6 @@
 from pathlib import Path
 import striprtf
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class RTFReader(IDocumentReader):
     @property

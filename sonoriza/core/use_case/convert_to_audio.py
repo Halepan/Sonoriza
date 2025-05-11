@@ -1,7 +1,6 @@
 from sonoriza.core.domain.document import Document
+from sonoriza.core.services.document_reader import IDocumentReader
 
-def text():
-    ruta = input("ruta: ")
-
-    archivo = Document(ruta)
-    print(archivo)
+def convert_audi(document:Document, reader:IDocumentReader)->str:
+    text  = reader.extract_text(document.ruta)
+    return text

@@ -1,7 +1,7 @@
 from pathlib import Path
 from odf import text, teletype
 from odf.opendocument import load
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class ODTReader(IDocumentReader):
     @property

@@ -1,7 +1,7 @@
 from pathlib import Path
 from ebooklib import epub
 from bs4 import BeautifulSoup
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class EPUBReader(IDocumentReader):
     @property

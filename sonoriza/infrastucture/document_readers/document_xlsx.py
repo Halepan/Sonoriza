@@ -1,6 +1,6 @@
 from pathlib import Path
 from openpyxl import load_workbook
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class XLSXReader(IDocumentReader):
     @property

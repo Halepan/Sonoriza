@@ -1,6 +1,6 @@
 from pathlib import Path
 from bs4 import BeautifulSoup
-from core.services.document_reader import IDocumentReader
+from sonoriza.core.services.document_reader import IDocumentReader
 
 class HTMLReader(IDocumentReader):
     @property
