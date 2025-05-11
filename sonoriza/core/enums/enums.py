@@ -6,7 +6,7 @@ class Genero(Enum):
 
     @classmethod
     def default(cls) -> "Genero":
-        return cls.HOMBRE
+        return cls.MUJER
 
 class Calidad(Enum):
     BUENA = auto()
@@ -57,3 +57,9 @@ class DocumentType(Enum):
     def reader_class_name(self) -> str:
         """Nombre de la clase lectora asociada en infrastructure. Ej: PDF -> 'PDFReader'"""
         return f"{self.name}Reader"
+
+class AudioFormat(Enum):
+    """Formatos de audio soportados"""
+    MP3 = auto()
+    WAV = auto()
+    OGG = auto()
