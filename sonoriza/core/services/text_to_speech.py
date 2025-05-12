@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
-from pathlib import Path
-from sonoriza.core.enums.enums import Genero, Calidad
+from sonoriza.core.domain.audi import AudioConfig
 
 class ITxt_to_speech(ABC):
+    def __init__(self, config: AudioConfig):  # Solo AudioConfig
+        self.config = config
+    
     @abstractmethod
-    def traduction(text:str,sexo:Genero,calidad:Calidad)->bytes:
+    def convertir_texto(self, texto: str) -> bytes:
+        """Usa self.config.voice y self.config.format internamente"""
         pass
-
-

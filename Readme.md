@@ -6,7 +6,8 @@ sonoriza/
 │   ├── domain/                 # Modelos de datos
 │   │   ├── document.py         # Clase Documento
 │   │   └── voice.py            # Configuración de voz
-│   │
+│   │   |__ audi.py             # Configuracion del audio
+|   |     
 │   ├── services/               # Interfaces de servicios
 │   │   ├── text_to_speech.py   # ITTS
 │   │   └── document_reader.py  # IDocumentReader

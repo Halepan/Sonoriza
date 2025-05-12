@@ -1,8 +1,23 @@
-from sonoriza.core.use_case.convert_to_audio import convert_audi
-from sonoriza.core.domain.document import Document
-from sonoriza.infrastucture.document_readers.reader_factory import get_reader
+from sonoriza.core.domain import AudioConfig, Voice
+from sonoriza.core.enums.enums import Genero, Calidad, AudioFormat
+from sonoriza.infrastucture.audio.pytts3x_adapter import Pyttsx3Adapter
+from pathlib import Path
 
 
-rout = input("ruta: ")
-archiv = Document(ruta= rout)
-print(convert_audi(archiv,get_reader(archiv.tipo)))
+ruta = input("ruta: ")
+# Configuración (ignorará el formato y siempre usará WAV)
+config = AudioConfig(
+    format=AudioFormat.WAV,  # ¡Importante! Solo WAV funciona
+    voice=Voice(
+        genero=Genero.MUJER,
+        calidad=Calidad.ALTA,
+        velocidad=5  # Rango 1-10
+    )
+)
+
+adapter = Pyttsx3Adapter(config)
+audio_wav = adapter.convertir_texto("Texto de ejemplo para convertir a voz")
+
+# Guardar el WAV
+with open(config.output_dir / "salida.wav", "wb") as f:
+    f.write(audio_wav)

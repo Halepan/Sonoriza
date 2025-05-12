@@ -1,3 +1,3 @@
-from .enums import Genero, Calidad, DocumentType
+from .enums import Genero, Calidad, DocumentType, AudioFormat
 
-__all__ = ["Genero", "Calidad", "DocumentType"]
+__all__ = ["Genero", "Calidad", "DocumentType","AudioFormat"]
