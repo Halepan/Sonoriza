@@ -44,3 +44,5 @@ sonoriza/
 ├── requirements.txt            # Dependencias
 ├── .gitignore                  # Archivos ignorados
 └── README.md                   # Documentación
+
+pip install -r requirements.txt
