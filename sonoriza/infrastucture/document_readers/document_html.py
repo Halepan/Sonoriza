@@ -1,11 +1,12 @@
 from pathlib import Path
 from bs4 import BeautifulSoup
 from sonoriza.core.services.document_reader import IDocumentReader
+from sonoriza.core.enums import DocumentType
 
 class HTMLReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['html', 'htm']
+        return [DocumentType.HTML]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de HTML usando BeautifulSoup"""

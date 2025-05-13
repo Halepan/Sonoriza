@@ -1,11 +1,12 @@
 from pathlib import Path
 import docx
 from sonoriza.core.services.document_reader import IDocumentReader
+from sonoriza.core.enums import DocumentType
 
 class DOCXReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['docx']
+        return [DocumentType.DOCX]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de archivos .docx usando python-docx"""

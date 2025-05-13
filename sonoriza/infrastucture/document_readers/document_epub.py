@@ -2,11 +2,11 @@ from pathlib import Path
 from ebooklib import epub
 from bs4 import BeautifulSoup
 from sonoriza.core.services.document_reader import IDocumentReader
-
+from sonoriza.core.enums import DocumentType
 class EPUBReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['epub']
+        return [DocumentType.EPUB]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de archivos EPUB usando ebooklib"""

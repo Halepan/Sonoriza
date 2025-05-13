@@ -1,11 +1,12 @@
 from pathlib import Path
 from openpyxl import load_workbook
 from sonoriza.core.services.document_reader import IDocumentReader
+from sonoriza.core.enums import DocumentType
 
 class XLSXReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['xlsx', 'xls']
+        return [DocumentType.XLSX]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de archivos Excel, concatenando columnas por fila."""

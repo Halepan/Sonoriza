@@ -1,10 +1,10 @@
 from pathlib import Path
 from sonoriza.core.services.document_reader import IDocumentReader
-
+from sonoriza.core.enums import DocumentType
 class TXTReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['txt']
+        return [DocumentType.TXT]
 
     def extract_text(self, file_path: Path) -> str:
         """Lee archivos de texto plano"""

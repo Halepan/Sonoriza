@@ -1,11 +1,12 @@
 from pathlib import Path
 from pptx import Presentation
 from sonoriza.core.services.document_reader import IDocumentReader
+from sonoriza.core.enums import DocumentType
 
 class PPTXReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['pptx']
+        return [DocumentType.PPTX]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de presentaciones PPTX usando python-pptx"""

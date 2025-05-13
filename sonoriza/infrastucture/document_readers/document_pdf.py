@@ -1,11 +1,11 @@
 from pathlib import Path
 import pdfplumber
 from sonoriza.core.services.document_reader import IDocumentReader
-
+from sonoriza.core.enums import DocumentType
 class PDFReader(IDocumentReader):
     @property
     def supported_formats(self) -> list[str]:
-        return ['pdf']
+        return [DocumentType.PDF]
 
     def extract_text(self, file_path: Path) -> str:
         """Extrae texto de PDFs usando pdfplumber"""

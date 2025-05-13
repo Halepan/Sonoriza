@@ -4,37 +4,38 @@ import tempfile
 import os
 from sonoriza.core.services.text_to_speech import ITxt_to_speech
 from sonoriza.core.domain.audi import AudioConfig
+from sonoriza.core.enums import Calidad, Genero
 
 class Pyttsx3Adapter(ITxt_to_speech):
     def __init__(self, config: AudioConfig):
-        # Fuerza el formato WAV aunque el config diga otra cosa
-        if config.format.name != "WAV":
-            print("[Advertencia] Sobreescribiendo formato a WAV (soporte nativo)")
-        self.config = config
+        super().__init__(config)
         self.engine = self._configure_engine()
 
     def _configure_engine(self):
         engine = pyttsx3.init()
         
-        # Configuración básica de voz
+        # Configuración de voz
         voices = engine.getProperty('voices')
+        target_gender = 'male' if self.config.voice.genero == Genero.HOMBRE else 'female'
+        
         for voice in voices:
-            if "spanish" in voice.name.lower() or "español" in voice.name.lower():
-                if self.config.voice.genero.name == "HOMBRE" and "male" in voice.name.lower():
-                    engine.setProperty('voice', voice.id)
-                    break
-                elif self.config.voice.genero.name == "MUJER" and "female" in voice.name.lower():
+            if target_gender in voice.name.lower():
+                if 'spanish' in voice.name.lower() or 'español' in voice.name.lower():
                     engine.setProperty('voice', voice.id)
                     break
         
-        # Ajustes de calidad/velocidad
-        engine.setProperty('rate', 130 + (self.config.voice.velocidad * 10))
-        engine.setProperty('volume', 0.9 if self.config.voice.calidad.name != "BUENA" else 0.6)
+        # Ajustes de parámetros
+        engine.setProperty('rate', 130 + (self.config.voice.velocidad * 15))
+        engine.setProperty('volume', {
+            Calidad.BUENA: 0.7,
+            Calidad.ALTA: 0.85,
+            Calidad.PREMIUM: 1.0
+        }[self.config.voice.calidad])
         
         return engine
 
     def convertir_texto(self, texto: str) -> bytes:
-        """Devuelve audio en formato WAV como bytes"""
+        """Devuelve audio en formato WAV crudo (sin exportar)"""
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as tmp_file:
             temp_path = tmp_file.name
         
